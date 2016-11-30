@@ -2,7 +2,9 @@ import config from "./config";
 import moduleTemplate from "./counter.html";
 
 function resolveRenderOn() {
-
+    return fetch("https://randomuser.me/api/").then((response)=>{
+        return response.json();
+    });
 }
 
 function onRenderComplete() {

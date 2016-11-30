@@ -1,2 +1,5 @@
-<h3>{{greeting}}</h3>
-<div>{{initialCount}}</div>
+{{#each results}}
+    {{name.title}} {{name.last}}
+    <br>
+    <img src="{{picture.medium}}">
+{{/each}}

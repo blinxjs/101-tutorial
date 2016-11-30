@@ -3755,7 +3755,11 @@ webpackJsonp([0,1],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function resolveRenderOn() {}
+	function resolveRenderOn() {
+	    return fetch("https://randomuser.me/api/").then(function (response) {
+	        return response.json();
+	    });
+	}
 	
 	function onRenderComplete() {}
 	
@@ -3772,14 +3776,20 @@ webpackJsonp([0,1],[
 
 	var Handlebars = __webpack_require__(13);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 	
-	  return "<h3>"
-	    + alias4(((helper = (helper = helpers.greeting || (depth0 != null ? depth0.greeting : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"greeting","hash":{},"data":data}) : helper)))
-	    + "</h3>\n<div>"
-	    + alias4(((helper = (helper = helpers.initialCount || (depth0 != null ? depth0.initialCount : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"initialCount","hash":{},"data":data}) : helper)))
-	    + "</div>\n";
+	  return "    "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.name : depth0)) != null ? stack1.title : stack1), depth0))
+	    + " "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.name : depth0)) != null ? stack1.last : stack1), depth0))
+	    + "\n    <br>\n    <img src=\""
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.picture : depth0)) != null ? stack1.medium : stack1), depth0))
+	    + "\">\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+	
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.results : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 	},"useData":true});
 
 /***/ },
