@@ -8,12 +8,11 @@
     "dev": "webpack",
     "dev:watch": "webpack --watch"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "durgesh.priyaranjan@flipkart.com",
   "license": "MIT",
   "dependencies": {
-
+    "handlebars": "^4.0.5"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
