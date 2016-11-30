@@ -2,18 +2,25 @@ import config from "./config";
 import moduleTemplate from "./counter.html";
 
 function resolveRenderOn() {
-    return fetch("https://randomuser.me/api/").then((response)=>{
-        return response.json();
-    });
+    this._.count = 0;
+    return this._;
 }
 
-function onRenderComplete() {
-
+function changeCounter(op) {
+    switch(op.type) {
+        case "increment":
+            ++this._.count;
+            break;
+        case "decrement":
+            --this._.count;
+            break;
+    }
 }
 
 export default {
     config,
     template: moduleTemplate,
     resolveRenderOn,
-    onRenderComplete
+    changeCounter,
+    observe_For: ["render"]
 }
