@@ -1,13 +1,15 @@
+import moduleTemplate from "./counter.html";
+
 function resolveRenderOn() {
-    console.log("resolveRenderOn called");
+
 }
 
 function render() {
-    console.log("render called");
+    document.querySelector(this.getModuleContainer()).innerHTML = moduleTemplate(this.getInstanceConfig());
 }
 
 function onRenderComplete() {
-    console.log("onRenderComplete called");
+
 }
 
 export default {

@@ -8,7 +8,7 @@ Blinx.createInstance({
     "instanceConfig": {
         "container": "#app-container",
         "placeholders": {
-
+            initialCount: 10
         }
     }
 });
