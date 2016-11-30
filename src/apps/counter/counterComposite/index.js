@@ -1,11 +1,8 @@
+import config from "./config";
 import moduleTemplate from "./counter.html";
 
 function resolveRenderOn() {
 
-}
-
-function render() {
-    document.querySelector(this.getModuleContainer()).innerHTML = moduleTemplate(this.getInstanceConfig());
 }
 
 function onRenderComplete() {
@@ -13,7 +10,8 @@ function onRenderComplete() {
 }
 
 export default {
+    config,
+    template: moduleTemplate,
     resolveRenderOn,
-    render,
     onRenderComplete
 }

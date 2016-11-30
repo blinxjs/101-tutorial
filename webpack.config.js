@@ -88,7 +88,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Blinx Boilerplate',
+            title: 'Blinx',
             template: './index.ejs',
             inject: 'body',
             filename: '../../index.html'
