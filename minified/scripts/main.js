@@ -3755,18 +3755,23 @@ webpackJsonp([0,1],[
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function resolveRenderOn() {
-	    return fetch("https://randomuser.me/api/").then(function (response) {
-	        return response.json();
+	function onRenderComplete() {
+	    var _this = this;
+	
+	    document.querySelector(".dec").addEventListener("click", function () {
+	        --_this.modulePlaceholders.initialCount;
+	        document.querySelector(".count").innerHTML = _this.modulePlaceholders.initialCount;
+	    });
+	
+	    document.querySelector(".inc").addEventListener("click", function () {
+	        ++_this.modulePlaceholders.initialCount;
+	        document.querySelector(".count").innerHTML = _this.modulePlaceholders.initialCount;
 	    });
 	}
-	
-	function onRenderComplete() {}
 	
 	exports.default = {
 	    config: _config2.default,
 	    template: _counter2.default,
-	    resolveRenderOn: resolveRenderOn,
 	    onRenderComplete: onRenderComplete
 	};
 
@@ -3776,20 +3781,12 @@ webpackJsonp([0,1],[
 
 	var Handlebars = __webpack_require__(13);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var helper;
 	
-	  return "    "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.name : depth0)) != null ? stack1.title : stack1), depth0))
-	    + " "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.name : depth0)) != null ? stack1.last : stack1), depth0))
-	    + "\n    <br>\n    <img src=\""
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.picture : depth0)) != null ? stack1.medium : stack1), depth0))
-	    + "\">\n";
-	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1;
-	
-	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.results : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	  return "<div>\n    <div class=\"count\">"
+	    + container.escapeExpression(((helper = (helper = helpers.initialCount || (depth0 != null ? depth0.initialCount : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"initialCount","hash":{},"data":data}) : helper)))
+	    + "</div>\n    <button class=\"inc\" data-type=\"+\">Increment</button>\n    <button class=\"dec\" data-type=\"-\">Decrement</button>\n</div>";
 	},"useData":true});
 
 /***/ },
