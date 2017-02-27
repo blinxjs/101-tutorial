@@ -1,20 +1,22 @@
 import config from "./config";
 import moduleTemplate from "./counter.html";
 
-function onRenderComplete() {
-    document.querySelector(".dec").addEventListener("click", () => {
-        --this.modulePlaceholders.initialCount;
-        document.querySelector(".count").innerHTML = this.modulePlaceholders.initialCount;
-    });
+function resolveRenderOn(){
+    this._.initialCount = this.modulePlaceholders.initialCount;
+}
 
-    document.querySelector(".inc").addEventListener("click", () => {
-        ++this.modulePlaceholders.initialCount;
-        document.querySelector(".count").innerHTML = this.modulePlaceholders.initialCount;
-    });
+function updateCount(op) {
+  if(op.type === "+"){
+    ++this._.initialCount;
+  } else {
+    --this._.initialCount;
+  }
 }
 
 export default {
+    resolveRenderOn,
     config,
     template: moduleTemplate,
-    onRenderComplete
+    updateCount,
+    observe_For: ["render"]
 }

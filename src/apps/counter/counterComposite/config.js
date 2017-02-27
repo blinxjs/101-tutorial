@@ -1,6 +1,15 @@
 export default {
-    modules: [],
-    placeholders: {
-        greeting: "Hi"
-    }
+  enableSmartRender: true,
+  modules: [],
+  placeholders: {
+  },
+  domEvents: {
+    click: [{
+      selectors: ["button"],
+      extract: {
+        type: "getData#type"
+      },
+      callback: "updateCount"
+    }]
+  }
 }
